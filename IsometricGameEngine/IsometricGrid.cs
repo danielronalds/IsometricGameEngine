@@ -11,60 +11,43 @@ namespace IsometricGameEngine
     {
         public Point GridOrigin;
 
-        public Image tileImage;
-
         public int TileWidth, TileHeight;
         public int gridSize;
 
         public Point[,] isometricGrid;
 
-        public IsometricGrid(int x, int y, Image image, int GridSize = 5)
+        public IsometricGrid(int x, int y, int GridSize = 5, int tile_width = 64, int tile_height = 64)
         {
             GridOrigin = new Point(x, y);
 
-            tileImage = image;
+            TileWidth = tile_width;
 
-            TileWidth = tileImage.Width;
+            TileHeight = tile_height;
 
-            TileHeight = tileImage.Height;
+            GridOrigin.X -= (TileWidth / 2);
 
-            GridOrigin.X -= (tileImage.Height / 2);
+            gridSize = GridSize;
 
-            buildGrid(GridSize);
+            buildGrid();
         }
 
-        public int toMapX(int screen_x, int screen_y)
+        public IsometricGrid(Point Location, Size Tile_Size, int GridSize = 5)
         {
-            decimal map_x;
+            GridOrigin = Location;
 
-            screen_x -= GridOrigin.X;
-            screen_y -= GridOrigin.Y;
+            TileWidth = Tile_Size.Width;
 
-            map_x = (screen_x / (TileHeight / 2) + screen_y / (TileHeight / 4)) / 2;
+            TileHeight = Tile_Size.Height;
 
-            map_x = Math.Floor(map_x);
+            GridOrigin.X -= (Tile_Size.Width / 2);
 
-            return (int)map_x;
+            gridSize = GridSize;
+
+            buildGrid();
         }
 
-        public int toMapY(int screen_x, int screen_y)
+        private void buildGrid()
         {
-            decimal map_y;
-
-            screen_x -= GridOrigin.X;
-            screen_y -= GridOrigin.Y;
-
-            map_y = (screen_y / (TileHeight / 4) - screen_x / (TileHeight / 2)) / 2;
-
-            map_y = Math.Floor(map_y);
-
-            return (int)map_y;
-        }
-
-        private void buildGrid(int gridsize = 5)
-        {
-            gridSize = gridsize;
-
             isometricGrid = new Point[gridSize, gridSize];
 
             Point gridOrigin = new Point(GridOrigin.X - (TileWidth / 2), GridOrigin.Y);
