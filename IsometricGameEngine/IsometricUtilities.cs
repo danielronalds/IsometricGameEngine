@@ -35,7 +35,7 @@ namespace IsometricGameEngine
             {
                 for (int z = 0; z < isometricGrid.gridSize; z++)
                 {
-                    if (Location == isometricGrid.isometricGrid[i, z])
+                    if (Location == isometricGrid.isometricGrid(i, z))
                     {
                         int[] mapLocation = { i, z };
                         return mapLocation;
@@ -54,7 +54,7 @@ namespace IsometricGameEngine
             {
                 for (int z = 0; z < isometricGrid.gridSize; z++)
                 {
-                    if (Location == isometricGrid.isometricGrid[i, z])
+                    if (Location == isometricGrid.isometricGrid(i, z))
                     {
                         int[] mapLocation = { i, z };
                         return mapLocation;
