@@ -24,6 +24,20 @@ namespace IsometricGameEngine
             Visible = visible;
         }
 
+        public RenderComponent(Image renderimage, int x, int y, bool visible = true)
+        {
+            int width, height;
+
+            renderImage = renderimage;
+
+            width = renderImage.Width;
+            height = renderImage.Height;
+
+            renderRect = new Rectangle(x,y,width,height);
+
+            Visible = visible;
+        }
+
         public void Render(Graphics g)
         {
             if (Visible)

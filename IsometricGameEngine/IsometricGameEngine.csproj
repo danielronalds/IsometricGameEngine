@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IsometricUtilities.cs" />
     <Compile Include="RenderComponent.cs" />
     <Compile Include="IsometricGrid.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
