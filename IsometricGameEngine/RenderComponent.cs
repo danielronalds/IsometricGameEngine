@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace IsometricGameEngine
 {
-    class RenderComponent
+    public class RenderComponent
     {
         public Image renderImage;
 
@@ -34,6 +34,19 @@ namespace IsometricGameEngine
             height = renderImage.Height;
 
             renderRect = new Rectangle(x,y,width,height);
+
+            Visible = visible;
+        }
+        public RenderComponent(Image renderimage, Point Location, bool visible = true)
+        {
+            int width, height;
+
+            renderImage = renderimage;
+
+            width = renderImage.Width;
+            height = renderImage.Height;
+
+            renderRect = new Rectangle(Location.X, Location.Y, width, height);
 
             Visible = visible;
         }

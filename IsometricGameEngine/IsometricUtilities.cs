@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace IsometricGameEngine
 {
-    class IsometricUtilities
+    public class IsometricUtilities
     {
         // Finding an objects Grid ID
         public int[] findGridID(IsometricGrid isometricGrid, Point Location)

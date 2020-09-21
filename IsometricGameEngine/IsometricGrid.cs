@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace IsometricGameEngine
 {
-    class IsometricGrid
+    public class IsometricGrid
     {
         public Point GridOrigin;
 
@@ -62,8 +62,8 @@ namespace IsometricGameEngine
             {
                 for (int x = 0; x < gridSize; x++)
                 {
-                    screen_x = (x - y) * (TileWidth / 2);
-                    screen_y = (x + y) * (TileHeight / 4);
+                    screen_x = GridOrigin.X + (x - y) * (TileWidth / 2);
+                    screen_y = GridOrigin.Y + (x + y) * (TileHeight / 4);
 
                     isometricGrid[x, y] = new Point(screen_x, screen_y);
 
