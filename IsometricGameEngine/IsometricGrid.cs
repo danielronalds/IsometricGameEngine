@@ -14,8 +14,10 @@ namespace IsometricGameEngine
         public int TileWidth, TileHeight;
         public int gridSize;
 
-        public Point[,] isometricGrid;
+        private Point[,] isomtricGridArray;
 
+        /* Different Constructers for intitializing the grid */
+        
         public IsometricGrid(int x, int y, int GridSize = 5, int tile_width = 64, int tile_height = 64)
         {
             GridOrigin = new Point(x, y);
@@ -46,11 +48,49 @@ namespace IsometricGameEngine
             buildGrid();
         }
 
+        public IsometricGrid(int x, int y, Image entityImage, int GridSize = 5)
+        {
+            GridOrigin = new Point(x, y);
+
+            TileWidth = entityImage.Width;
+
+            TileHeight = entityImage.Height;
+
+            GridOrigin.X -= (TileWidth / 2);
+
+            gridSize = GridSize;
+
+            buildGrid();
+        }
+
+        public IsometricGrid(Point Location, Image entityImage, int GridSize = 5)
+        {
+            GridOrigin = Location;
+
+            TileWidth = entityImage.Width;
+
+            TileHeight = entityImage.Height;
+
+            GridOrigin.X -= (TileHeight / 2);
+
+            gridSize = GridSize;
+
+            buildGrid();
+        }
+
+        public Point isometricGrid(GridIndex gridIndex)
+        {
+            return isomtricGridArray[gridIndex.X, gridIndex.Y];
+        }
+
+        public Point isometricGrid(int x, int y)
+        {
+            return isomtricGridArray[x, y];
+        }
+
         private void buildGrid()
         {
-            isometricGrid = new Point[gridSize, gridSize];
-
-            Point gridOrigin = new Point(GridOrigin.X - (TileWidth / 2), GridOrigin.Y);
+            isomtricGridArray = new Point[gridSize, gridSize];
 
             int map_x = 0;
             int map_y = 0;
@@ -65,7 +105,7 @@ namespace IsometricGameEngine
                     screen_x = GridOrigin.X + (x - y) * (TileWidth / 2);
                     screen_y = GridOrigin.Y + (x + y) * (TileHeight / 4);
 
-                    isometricGrid[x, y] = new Point(screen_x, screen_y);
+                    isomtricGridArray[x, y] = new Point(screen_x, screen_y);
 
                     map_x++;
                 }

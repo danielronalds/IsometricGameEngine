@@ -16,7 +16,7 @@ namespace IsometricGameEngine
             {
                 for (int x = 0; x < isometricGrid.gridSize; x++)
                 {
-                    if (Location == isometricGrid.isometricGrid[i, x])
+                    if (Location == isometricGrid.isometricGrid(i, x))
                     {
                         int[] mapLocation = { i, x };
                         return mapLocation;
