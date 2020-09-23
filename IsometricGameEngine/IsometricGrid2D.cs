@@ -7,18 +7,17 @@ using System.Drawing;
 
 namespace IsometricGameEngine
 {
-    public class IsometricGrid
+    public class IsometricGrid2D
     {
         public Point GridOrigin;
 
-        public int TileWidth, TileHeight;
-        public int gridSize;
+        public int TileWidth, TileHeight,  gridSize;
 
         private Point[,] isomtricGridArray;
 
         /* Different Constructers for intitializing the grid */
         
-        public IsometricGrid(int x, int y, int GridSize = 5, int tile_width = 64, int tile_height = 64)
+        public IsometricGrid2D(int x, int y, int GridSize = 5, int tile_width = 64, int tile_height = 64)
         {
             GridOrigin = new Point(x, y);
 
@@ -33,7 +32,7 @@ namespace IsometricGameEngine
             buildGrid();
         }
 
-        public IsometricGrid(Point Location, Size Tile_Size, int GridSize = 5)
+        public IsometricGrid2D(Point Location, Size Tile_Size, int GridSize = 5)
         {
             GridOrigin = Location;
 
@@ -48,7 +47,7 @@ namespace IsometricGameEngine
             buildGrid();
         }
 
-        public IsometricGrid(int x, int y, Image entityImage, int GridSize = 5)
+        public IsometricGrid2D(int x, int y, Image entityImage, int GridSize = 5)
         {
             GridOrigin = new Point(x, y);
 
@@ -63,7 +62,7 @@ namespace IsometricGameEngine
             buildGrid();
         }
 
-        public IsometricGrid(Point Location, Image entityImage, int GridSize = 5)
+        public IsometricGrid2D(Point Location, Image entityImage, int GridSize = 5)
         {
             GridOrigin = Location;
 
@@ -78,12 +77,12 @@ namespace IsometricGameEngine
             buildGrid();
         }
 
-        public Point isometricGrid(GridIndex gridIndex)
+        public Point getPoint(GridIndex gridIndex)
         {
             return isomtricGridArray[gridIndex.X, gridIndex.Y];
         }
 
-        public Point isometricGrid(int x, int y)
+        public Point getPoint(int x, int y)
         {
             return isomtricGridArray[x, y];
         }
@@ -91,9 +90,6 @@ namespace IsometricGameEngine
         private void buildGrid()
         {
             isomtricGridArray = new Point[gridSize, gridSize];
-
-            int map_x = 0;
-            int map_y = 0;
 
             int screen_x;
             int screen_y;
@@ -106,11 +102,7 @@ namespace IsometricGameEngine
                     screen_y = GridOrigin.Y + (x + y) * (TileHeight / 4);
 
                     isomtricGridArray[x, y] = new Point(screen_x, screen_y);
-
-                    map_x++;
                 }
-
-                map_y++;
             }
         }
     }

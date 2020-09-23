@@ -18,11 +18,11 @@ namespace IsometricGameEngine
             Y = y;
         }
 
-        public Point toScreenPoint(IsometricGrid grid)
+        public Point toScreenPoint(IsometricGrid2D grid)
         {
             Point screenPoint;
 
-            screenPoint = grid.isometricGrid(X, Y);
+            screenPoint = grid.getPoint(X, Y);
 
             return screenPoint;
         }

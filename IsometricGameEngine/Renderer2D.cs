@@ -11,7 +11,7 @@ namespace IsometricGameEngine
     {
         public List<RenderComponent> renderComponents = new List<RenderComponent>();
 
-        public Renderer2D(IsometricGrid isometricGrid, TileMap tileMap, Image renderImage )
+        public Renderer2D(IsometricGrid2D isometricGrid, TileMap tileMap, Image renderImage )
         {
             fillGrid(isometricGrid, tileMap, renderImage);
         }
@@ -24,7 +24,7 @@ namespace IsometricGameEngine
             }
         }
 
-        private void fillGrid(IsometricGrid isometricGrid, TileMap tileMap, Image renderImage)
+        private void fillGrid(IsometricGrid2D isometricGrid, TileMap tileMap, Image renderImage)
         {
             int length = isometricGrid.gridSize;
 
@@ -34,7 +34,7 @@ namespace IsometricGameEngine
                 {
                     if(tileMap.getValue(x,y) != tileMap.VoidCharacter)
                     {
-                        renderComponents.Add(new RenderComponent(renderImage, isometricGrid.isometricGrid(x, y)));
+                        renderComponents.Add(new RenderComponent(renderImage, isometricGrid.getPoint(x, y)));
                     }
                 }
             }

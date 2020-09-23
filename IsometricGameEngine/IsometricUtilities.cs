@@ -10,13 +10,13 @@ namespace IsometricGameEngine
     public class IsometricUtilities
     {
         // Finding an objects Grid ID
-        public GridIndex findGridID(IsometricGrid isometricGrid, Point Location)
+        public GridIndex findGridID(IsometricGrid2D isometricGrid, Point Location)
         {
             for (int i = 0; i < isometricGrid.gridSize; i++)
             {
                 for (int x = 0; x < isometricGrid.gridSize; x++)
                 {
-                    if (Location == isometricGrid.isometricGrid(i, x))
+                    if (Location == isometricGrid.getPoint(i, x))
                     {
                         GridIndex gridIndex = new GridIndex(i, x);
                         return gridIndex;
@@ -27,7 +27,7 @@ namespace IsometricGameEngine
             return null;
         }
 
-        public GridIndex findGridID(IsometricGrid isometricGrid, int x, int y)
+        public GridIndex findGridID(IsometricGrid2D isometricGrid, int x, int y)
         {
             Point Location = new Point(x, y); // Overload conversion
 
@@ -35,7 +35,7 @@ namespace IsometricGameEngine
             {
                 for (int z = 0; z < isometricGrid.gridSize; z++)
                 {
-                    if (Location == isometricGrid.isometricGrid(i, z))
+                    if (Location == isometricGrid.getPoint(i, z))
                     {
                         GridIndex gridIndex = new GridIndex(i, x);
                         return gridIndex;
@@ -46,7 +46,7 @@ namespace IsometricGameEngine
             return null;
         }
 
-        public GridIndex findGridID(IsometricGrid isometricGrid, Rectangle Entity)
+        public GridIndex findGridID(IsometricGrid2D isometricGrid, Rectangle Entity)
         {
             Point Location = Entity.Location; // Overload conversion
 
@@ -54,7 +54,7 @@ namespace IsometricGameEngine
             {
                 for (int z = 0; z < isometricGrid.gridSize; z++)
                 {
-                    if (Location == isometricGrid.isometricGrid(i, z))
+                    if (Location == isometricGrid.getPoint(i, z))
                     {
                         GridIndex gridIndex = new GridIndex(i, z);
                         return gridIndex;
