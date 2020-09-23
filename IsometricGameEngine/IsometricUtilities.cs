@@ -10,7 +10,7 @@ namespace IsometricGameEngine
     public class IsometricUtilities
     {
         // Finding an objects Grid ID
-        public int[] findGridID(IsometricGrid isometricGrid, Point Location)
+        public GridIndex findGridID(IsometricGrid isometricGrid, Point Location)
         {
             for (int i = 0; i < isometricGrid.gridSize; i++)
             {
@@ -18,8 +18,8 @@ namespace IsometricGameEngine
                 {
                     if (Location == isometricGrid.isometricGrid(i, x))
                     {
-                        int[] mapLocation = { i, x };
-                        return mapLocation;
+                        GridIndex gridIndex = new GridIndex(i, x);
+                        return gridIndex;
                     }
                 }
             }
@@ -27,9 +27,9 @@ namespace IsometricGameEngine
             return null;
         }
 
-        public int[] findGridID(IsometricGrid isometricGrid, int x, int y)
+        public GridIndex findGridID(IsometricGrid isometricGrid, int x, int y)
         {
-            Point Location = new Point(x, y);
+            Point Location = new Point(x, y); // Overload conversion
 
             for (int i = 0; i < isometricGrid.gridSize; i++)
             {
@@ -37,8 +37,8 @@ namespace IsometricGameEngine
                 {
                     if (Location == isometricGrid.isometricGrid(i, z))
                     {
-                        int[] mapLocation = { i, z };
-                        return mapLocation;
+                        GridIndex gridIndex = new GridIndex(i, x);
+                        return gridIndex;
                     }
                 }
             }
@@ -46,9 +46,9 @@ namespace IsometricGameEngine
             return null;
         }
 
-        public int[] findGridID(IsometricGrid isometricGrid, Rectangle Entity)
+        public GridIndex findGridID(IsometricGrid isometricGrid, Rectangle Entity)
         {
-            Point Location = Entity.Location;
+            Point Location = Entity.Location; // Overload conversion
 
             for (int i = 0; i < isometricGrid.gridSize; i++)
             {
@@ -56,8 +56,8 @@ namespace IsometricGameEngine
                 {
                     if (Location == isometricGrid.isometricGrid(i, z))
                     {
-                        int[] mapLocation = { i, z };
-                        return mapLocation;
+                        GridIndex gridIndex = new GridIndex(i, z);
+                        return gridIndex;
                     }
                 }
             }
