@@ -6,16 +6,25 @@ using System.Threading.Tasks;
 
 namespace IsometricGameEngine
 {
-    class TileMap
+    public class TileMap
     {
         private string[,] tileMap;
 
-        public TileMap(string[,] map)
+        public string VoidCharacter;
+
+        public TileMap(string[,] map, string voidCharacter)
         {
             tileMap = map;
+
+            VoidCharacter = voidCharacter;
         }
 
-        public string getID(int x, int y)
+        public string[,] toArray()
+        {
+            return tileMap;
+        }
+
+        public string getValue(int x, int y)
         {
             return tileMap[x,y];
         }
