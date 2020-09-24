@@ -76,10 +76,5 @@ namespace IsometricGameEngine
                 Layers.Add(layer);
             }
         }
-
-        public void fill(Image tileImage)
-        {
-
-        }
     }
 }
