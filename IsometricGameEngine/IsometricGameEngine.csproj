@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ColliderComponent.cs" />
     <Compile Include="TileMapTemplates.cs" />
     <Compile Include="GridIndex.cs" />
     <Compile Include="IsometricGrid3D.cs" />
