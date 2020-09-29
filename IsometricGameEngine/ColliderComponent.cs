@@ -15,6 +15,15 @@ namespace IsometricGameEngine
 
         public List<Rectangle> Colliders = new List<Rectangle>();
 
+        public bool Fixed = false;
+
+        public ColliderComponent(Point Location, IsometricGrid2D isometricGrid)
+        {
+            position = Location;
+
+            configureCollisionArray(isometricGrid);
+        }
+
         public ColliderComponent(RenderComponent isometricComponent, IsometricGrid2D isometricGrid)
         {
             position = isometricComponent.renderRect.Location;//isoTools.findGridID(isometricGrid, isometricComponent.renderRect);

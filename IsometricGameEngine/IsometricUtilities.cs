@@ -68,8 +68,15 @@ namespace IsometricGameEngine
         // Checking Collisions
         public bool collidersColliding(ColliderComponent colliderOne, ColliderComponent colliderTwo, IsometricGrid2D isometricGrid)
         {
-            colliderOne.configureCollisionArray(isometricGrid);
-            colliderTwo.configureCollisionArray(isometricGrid);
+            if(!colliderOne.Fixed)
+            {
+                colliderOne.configureCollisionArray(isometricGrid);
+            }
+
+            if(!colliderTwo.Fixed)
+            {
+                colliderTwo.configureCollisionArray(isometricGrid);
+            }
 
             foreach (Rectangle collider1 in colliderOne.Colliders)
             {
