@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ColliderComponent.cs" />
+    <Compile Include="Collision.cs" />
     <Compile Include="Effects.cs" />
     <Compile Include="TileMapTemplates.cs" />
     <Compile Include="GridIndex.cs" />

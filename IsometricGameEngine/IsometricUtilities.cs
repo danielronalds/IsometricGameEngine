@@ -65,31 +65,5 @@ namespace IsometricGameEngine
             return null;
         }
 
-        // Checking Collisions
-        public bool collidersColliding(ColliderComponent colliderOne, ColliderComponent colliderTwo, IsometricGrid2D isometricGrid)
-        {
-            if(!colliderOne.Fixed)
-            {
-                colliderOne.configureCollisionArray(isometricGrid);
-            }
-
-            if(!colliderTwo.Fixed)
-            {
-                colliderTwo.configureCollisionArray(isometricGrid);
-            }
-
-            foreach (Rectangle collider1 in colliderOne.Colliders)
-            {
-                foreach(Rectangle collider2 in colliderTwo.Colliders)
-                {
-                    if(collider1.IntersectsWith(collider2))
-                    {
-                        return true;
-                    }
-                }
-            }
-
-            return false;
-        }
     }
 }
