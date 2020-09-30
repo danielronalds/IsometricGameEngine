@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace IsometricGameEngine
 {
-    class Collision
+    public class Collision
     {
         // Checking Collisions
         public bool collidersColliding(ColliderComponent colliderOne, ColliderComponent colliderTwo, IsometricGrid2D isometricGrid)

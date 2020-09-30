@@ -12,11 +12,26 @@ namespace IsometricGameEngine
 
         public string VoidCharacter;
 
+        public int Width, Height;
+
         public TileMap(string[,] map, string voidCharacter)
         {
             tileMap = map;
 
             VoidCharacter = voidCharacter;
+
+            Width = (int)Math.Sqrt(toArray().Length);
+            Height = Width;
+        }
+
+        public TileMap(string[,] map, string voidCharacter, int width, int height)
+        {
+            tileMap = map;
+
+            VoidCharacter = voidCharacter;
+
+            Width = width;
+            Height = height;
         }
 
         public string[,] toArray()

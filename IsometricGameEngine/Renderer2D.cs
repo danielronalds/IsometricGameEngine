@@ -26,11 +26,9 @@ namespace IsometricGameEngine
 
         private void fillGrid(IsometricGrid2D isometricGrid, TileMap tileMap, Image renderImage)
         {
-            int length = isometricGrid.gridSize;
-
-            for (int y = 0; y < length; y++)
+            for (int y = 0; y < tileMap.Height; y++)
             {
-                for (int x = 0; x < length; x++)
+                for (int x = 0; x < tileMap.Width; x++)
                 {
                     if(tileMap.getValue(x,y) != tileMap.VoidCharacter)
                     {

@@ -10,42 +10,38 @@ namespace IsometricGameEngine
     {
         public TileMap FilledGrid(IsometricGrid2D isometricGrid)
         {
-            TileMap tileMap;
-
             int length = isometricGrid.gridSize;
 
-            string[,] templateMap = new string[length, length];
-
-            for (int y = 0; y < length; y++)
-            {
-                for (int x = 0; x < length; x++)
-                {
-                    templateMap[x, y] = "f";
-                }
-            }
-
-            tileMap = new TileMap(templateMap, "0");
-
-            return tileMap;
+            return filledgrid(length, length);
         }
         
         public TileMap FilledGrid(IsometricGrid3D isometricGrid)
         {
-            TileMap tileMap;
-
             int length = isometricGrid.GridSize;
 
-            string[,] templateMap = new string[length, length];
+            return filledgrid(length, length);
+        }
 
-            for (int y = 0; y < length; y++)
+        public TileMap FilledGrid(int width, int length)
+        {
+            return filledgrid(width, length);
+        }
+
+        private TileMap filledgrid(int width, int height)
+        {
+            TileMap tileMap;
+
+            string[,] templateMap = new string[width, height];
+
+            for (int y = 0; y < height; y++)
             {
-                for (int x = 0; x < length; x++)
+                for (int x = 0; x < width; x++)
                 {
                     templateMap[x, y] = "f";
                 }
             }
 
-            tileMap = new TileMap(templateMap, "0");
+            tileMap = new TileMap(templateMap, "0", width, height);
 
             return tileMap;
         }
