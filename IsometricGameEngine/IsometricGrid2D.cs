@@ -19,20 +19,36 @@ namespace IsometricGameEngine
         
         public IsometricGrid2D(int x, int y, int GridSize = 5, int tile_width = 64, int tile_height = 64)
         {
-            GridOrigin = new Point(x, y);
+            Point point = new Point(x, y);
 
-            TileWidth = tile_width;
+            Size Tile_Size = new Size(tile_width, tile_height);
 
-            TileHeight = tile_height;
-
-            GridOrigin.X -= (TileWidth / 2);
-
-            gridSize = GridSize;
-
-            buildGrid();
+            isometricgrid2D(point, GridSize, Tile_Size);
         }
 
         public IsometricGrid2D(Point Location, Size Tile_Size, int GridSize = 5)
+        {
+            isometricgrid2D(Location, GridSize, Tile_Size);
+        }
+
+        public IsometricGrid2D(int x, int y, Image entityImage, int GridSize = 5)
+        {
+
+            Point point = new Point(x, y);
+
+            Size Tile_Size = entityImage.Size;
+
+            isometricgrid2D(point, GridSize, Tile_Size);
+        }
+
+        public IsometricGrid2D(Point Location, Image entityImage, int GridSize = 5)
+        {
+            Size Tile_Size = entityImage.Size;
+
+            isometricgrid2D(Location, GridSize, Tile_Size);
+        }
+
+        private void isometricgrid2D(Point Location, int GridSize, Size Tile_Size)
         {
             GridOrigin = Location;
 
@@ -40,37 +56,7 @@ namespace IsometricGameEngine
 
             TileHeight = Tile_Size.Height;
 
-            GridOrigin.X -= (Tile_Size.Width / 2);
-
-            gridSize = GridSize;
-
-            buildGrid();
-        }
-
-        public IsometricGrid2D(int x, int y, Image entityImage, int GridSize = 5)
-        {
-            GridOrigin = new Point(x, y);
-
-            TileWidth = entityImage.Width;
-
-            TileHeight = entityImage.Height;
-
             GridOrigin.X -= (TileWidth / 2);
-
-            gridSize = GridSize;
-
-            buildGrid();
-        }
-
-        public IsometricGrid2D(Point Location, Image entityImage, int GridSize = 5)
-        {
-            GridOrigin = Location;
-
-            TileWidth = entityImage.Width;
-
-            TileHeight = entityImage.Height;
-
-            GridOrigin.X -= (TileHeight / 2);
 
             gridSize = GridSize;
 

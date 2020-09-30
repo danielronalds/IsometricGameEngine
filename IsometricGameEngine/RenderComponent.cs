@@ -26,18 +26,17 @@ namespace IsometricGameEngine
 
         public RenderComponent(Image renderimage, int x, int y, bool visible = true)
         {
-            int width, height;
+            Point Location = new Point(x, y); 
 
-            renderImage = renderimage;
-
-            width = renderImage.Width;
-            height = renderImage.Height;
-
-            renderRect = new Rectangle(x,y,width,height);
-
-            Visible = visible;
+            renderComponent(renderImage, Location, visible);
         }
+
         public RenderComponent(Image renderimage, Point Location, bool visible = true)
+        {
+            renderComponent(renderImage, Location, visible);
+        }
+
+        private void renderComponent(Image renderimage, Point Location, bool visible)
         {
             int width, height;
 

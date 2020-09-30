@@ -17,22 +17,23 @@ namespace IsometricGameEngine
 
         public IsometricGrid3D(int x, int y, int gridSize = 5, int gridHeight = 5, int tile_width = 64, int tile_height = 64)
         {
-            GridOrigin = new Point(x, y);
+            Point gridorigin = new Point(x, y);
 
-            TileWidth = tile_width;
+            Size tileSize = new Size(tile_width, tile_height);
 
-            TileHeight = tile_height;
-
-            GridOrigin.X -= (TileWidth / 2);
-
-            GridSize = gridSize;
-
-            GridHeight = gridHeight;
+            isometricgrid3D(gridorigin, tileSize, gridHeight, gridSize);
 
             buildGrid();
         }
 
         public IsometricGrid3D(Point Location, Size Tile_Size, int gridHeight = 5, int gridSize = 5)
+        {
+            isometricgrid3D(Location, Tile_Size, gridHeight, gridSize);
+
+            buildGrid();
+        }
+
+        private void isometricgrid3D(Point Location, Size Tile_Size, int gridHeight, int gridSize)
         {
             GridOrigin = Location;
 
@@ -45,8 +46,6 @@ namespace IsometricGameEngine
             GridSize = gridSize;
 
             GridHeight = gridHeight;
-
-            buildGrid();
         }
 
         public IsometricGrid2D to2D(int z)
