@@ -7,10 +7,10 @@ using System.Drawing;
 
 namespace IsometricGameEngine
 {
-    public class Collision
+    public static class Collision
     {
         // Checking Collisions
-        public bool collidersColliding(ColliderComponent colliderOne, ColliderComponent colliderTwo, IsometricGrid2D isometricGrid)
+        public static bool collidersColliding(ColliderComponent colliderOne, ColliderComponent colliderTwo, IsometricGrid2D isometricGrid)
         {
             if (!colliderOne.Fixed)
             {
@@ -36,7 +36,7 @@ namespace IsometricGameEngine
             return false;
         }
 
-        public bool collidersColliding(ColliderComponent colliderOne, List<ColliderComponent> colliders, IsometricGrid2D isometricGrid)
+        public static bool collidersColliding(ColliderComponent colliderOne, List<ColliderComponent> colliders, IsometricGrid2D isometricGrid)
         {
             foreach (ColliderComponent colliderTwo in colliders)
             {
@@ -48,7 +48,7 @@ namespace IsometricGameEngine
             return false;
         }
 
-        public bool collidersColliding(ColliderComponent colliderOne, ColliderComponent[] colliders, IsometricGrid2D isometricGrid)
+        public static bool collidersColliding(ColliderComponent colliderOne, ColliderComponent[] colliders, IsometricGrid2D isometricGrid)
         {
             foreach (ColliderComponent colliderTwo in colliders)
             {
@@ -60,7 +60,7 @@ namespace IsometricGameEngine
             return false;
         }
 
-        public List<ColliderComponent> placeColliders(IsometricGrid2D isometricGrid, TileMap sourceMap)
+        public static List<ColliderComponent> placeColliders(IsometricGrid2D isometricGrid, TileMap sourceMap)
         {
             int length = isometricGrid.gridSize;
 
