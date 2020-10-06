@@ -46,6 +46,7 @@
     <Compile Include="ColliderComponent.cs" />
     <Compile Include="Collision.cs" />
     <Compile Include="Effects.cs" />
+    <Compile Include="IsometricMovement.cs" />
     <Compile Include="TileMapTemplates.cs" />
     <Compile Include="GridIndex.cs" />
     <Compile Include="IsometricGrid3D.cs" />

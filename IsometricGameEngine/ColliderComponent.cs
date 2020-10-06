@@ -9,8 +9,6 @@ namespace IsometricGameEngine
 {
     public class ColliderComponent
     {
-        IsometricUtilities isoTools = new IsometricUtilities();
-
         public Point position;
 
         public List<Rectangle> Colliders = new List<Rectangle>();
