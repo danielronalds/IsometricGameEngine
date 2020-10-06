@@ -28,12 +28,12 @@ namespace IsometricGameEngine
         {
             Point Location = new Point(x, y); 
 
-            renderComponent(renderImage, Location, visible);
+            renderComponent(renderimage, Location, visible);
         }
 
         public RenderComponent(Image renderimage, Point Location, bool visible = true)
         {
-            renderComponent(renderImage, Location, visible);
+            renderComponent(renderimage, Location, visible);
         }
 
         private void renderComponent(Image renderimage, Point Location, bool visible)
